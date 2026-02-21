@@ -20,7 +20,7 @@ jobs:
 
     - name: Deploy to VM
       run: |
-        ssh -o SctrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
+        ssh -o StrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
         cd self-heal-app
         git pull origin main
         docker build -t heal-app .
