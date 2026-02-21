@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout Code
-      uses: actions/acheckout@v3
+      uses: actions/checkout@v3
 
     - name: Setup SSH
       uses: webfactory/ssh-agent@v0.5.3
@@ -20,7 +20,7 @@ jobs:
 
     - name: Deploy to VM
       run: |
-        ssh -o SctrictHOstKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
+        ssh -o SctrictHostKeyChecking=no ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
         cd self-heal-app
         git pull origin main
         docker build -t heal-app .
