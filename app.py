@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Service is healthy! v1"
+    return "Service is healthy! push test v2"
 
 @app.route("/health")
 def health():
