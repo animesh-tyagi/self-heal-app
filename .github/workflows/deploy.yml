@@ -24,8 +24,10 @@ jobs:
         cd self-heal-app
         git pull origin main
         docker build -t heal-app .
+        touch /tmp/deploying.lock
         docker stop heal-container || true
         docker rm heal-container || true
         docker run -d -p 80:5000 --name heal-container heal-app
+        rm -f /tmp/deploying.lock
         EOF
     

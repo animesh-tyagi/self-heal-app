@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ -f /tmp/deploying.lock ]; then
+    exit 0
+fi
+
 LOGFILE="$HOME/health-monitor.log"
 
 STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/health)
